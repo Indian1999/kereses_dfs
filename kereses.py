@@ -1,6 +1,6 @@
 # ctrl alt le/fel nyíl -> az alatta lévő sorba rak egy extra kurzort
 # alt + bal click -> új kurzort tudsz rakni oda ahova klikkelsz
-map = [
+"""map = [
 [8,9,0,1,0,1,2,3],
 [7,8,1,2,1,8,7,4],
 [8,7,4,3,0,9,6,5],
@@ -9,7 +9,16 @@ map = [
 [3,2,0,1,9,0,1,2],
 [0,1,3,2,9,8,0,1],
 [1,0,4,5,6,7,3,2]
-]
+]"""
+map = []
+with open("input.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        line = line.strip()
+        new_row = []
+        for char in line:
+            new_row.append(int(char))
+        map.append(new_row)
+        
 score_map = [[0 for i in range(len(map[0]))] for j in range(len(map))] # csupa 0-ból álló 8x8 mátrixot
 
 def possible_moves(i,j):
