@@ -31,6 +31,14 @@ def increment_scores(a,b):
             score_map[i][j] += 1
             visited.append((i,j))
             moves = possible_moves(i,j)
+            if "up" in moves:
+                f(i-1, j)
+            if "down" in moves:
+                f(i+1, j)
+            if "left" in moves:
+                f(i, j-1)
+            if "right" in moves:
+                f(i, j+1)
     f(a,b)
     
 for i in range(len(map)):
