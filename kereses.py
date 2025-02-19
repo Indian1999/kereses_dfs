@@ -22,7 +22,7 @@ def possible_moves(i,j):
         moves.append("right")
     if j > 0 and map[i][j-1] == map[i][j] - 1:
         moves.append("left")
-    return moves    
+    return moves
 
 def increment_scores(a,b):
     visited = [] # elmentjük azokat a cellákat amiket már megnéztünk (3,6)
@@ -45,3 +45,10 @@ for i in range(len(map)):
     for j in range(len(map[i])):
         if map[i][j] == 9:
             increment_scores(i,j)
+            
+total = 0  
+for i in range(len(map)):
+    for j in range(len(map[i])):
+        if map[i][j] == 0:
+            total += score_map[i][j]
+print(total)
